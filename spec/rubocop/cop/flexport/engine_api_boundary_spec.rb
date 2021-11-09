@@ -19,7 +19,7 @@ RSpec.describe RuboCop::Cop::Flexport::EngineApiBoundary do
     }
   end
 
-  let(:api_path) { 'engines/my_engine/app/api/my_engine/api/' }
+  let(:api_path) { 'engines/my_engine/api/' }
   let(:legacy_dependents_file) { api_path + '_legacy_dependents.rb' }
   let(:whitelist_file) { api_path + '_whitelist.rb' }
   let(:allowlist_file) { api_path + '_allowlist.rb' }
@@ -428,7 +428,7 @@ RSpec.describe RuboCop::Cop::Flexport::EngineApiBoundary do
             end
           RUBY
         end
-        let(:allowlist_file) { 'engines/other_engine/app/api/other_engine/api/_allowlist.rb' }
+        let(:allowlist_file) { 'engines/other_engine/api/_allowlist.rb' }
 
         before do
           allow(File).to(
@@ -825,7 +825,7 @@ RSpec.describe RuboCop::Cop::Flexport::EngineApiBoundary do
         let(:file) do
           '/root/engines/my_engine/app/services/my_engine/my_service.rb'
         end
-        let(:api_path) { 'engines/other_engine/app/api/other_engine/api/' }
+        let(:api_path) { 'engines/other_engine/api/' }
         let(:whitelist_file) { api_path + '_whitelist.rb' }
 
         before do
@@ -872,7 +872,7 @@ RSpec.describe RuboCop::Cop::Flexport::EngineApiBoundary do
         let(:file) do
           '/root/engines/my_engine/app/services/my_engine/my_service.rb'
         end
-        let(:api_path) { 'engines/other_engine/app/api/other_engine/api/' }
+        let(:api_path) { 'engines/other_engine/api/' }
         let(:legacy_dependents_file) { api_path + '_legacy_dependents.rb' }
 
         before do

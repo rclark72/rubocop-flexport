@@ -42,7 +42,7 @@ module RuboCop
       end
 
       def engine_api_files_modified_time_checksum(engines_path)
-        api_files = Dir.glob(File.join(engines_path, '**/app/api/**/api/**/*'))
+        api_files = Dir.glob(File.join(engines_path, '**/api/**/*'))
         mtimes = api_files.sort.map { |f| File.mtime(f) }
         Digest::SHA1.hexdigest(mtimes.join)
       end
@@ -59,7 +59,7 @@ module RuboCop
 
       def api_path(engines_path, engine)
         raw_name = ActiveSupport::Inflector.underscore(engine.to_s)
-        File.join(engines_path, "#{raw_name}/app/api/#{raw_name}/api/")
+        File.join(engines_path, "#{raw_name}/api/")
       end
 
       def parse_ast(source_code)
